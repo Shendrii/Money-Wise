@@ -180,9 +180,28 @@ export default function ExpensesPage() {
   return (
     <Container maxWidth="lg">
       <Box sx={{ my: 4 }}>
-        <Typography variant="h4" component="h1" gutterBottom sx={headerStyle}>
-          Expenses
-        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            mb: 2,
+          }}
+        >
+          <Typography variant="h4" component="h1" gutterBottom sx={headerStyle}>
+            Expenses
+          </Typography>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => {
+              setSelectedExpense(null);
+              setOpenDialog(true);
+            }}
+          >
+            Create Expense
+          </Button>
+        </Box>
 
         <ExpenseFilters filters={filters} setFilters={setFilters} />
 

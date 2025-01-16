@@ -96,7 +96,7 @@ export default function Page() {
     try {
       const expenses: Expense[] = await expenseService.getExpenses(user.uid);
 
-      // Calculate stats
+      // Calculate stats with initial values
       const total = expenses.reduce((sum, exp) => sum + exp.amount, 0);
       const currentMonth = new Date().getMonth();
       const monthlyTotal = expenses
@@ -112,10 +112,13 @@ export default function Page() {
         {}
       );
 
-      // Find highest category
-      const highestCategory = Object.entries(categoryTotals).reduce((a, b) =>
-        a[1] > b[1] ? a : b
-      );
+      // Find highest category (with empty array handling)
+      const highestCategory =
+        Object.entries(categoryTotals).length > 0
+          ? Object.entries(categoryTotals).reduce((a, b) =>
+              a[1] > b[1] ? a : b
+            )
+          : ["None", 0];
 
       // Set stats
       setStats({
