@@ -39,7 +39,7 @@ export default function ClientLayout({
             color: "gray",
           }}
         >
-          © 2024 Expense Tracker Sky
+          © 2025 Expense Tracker Sky
         </footer>
       </AuthProvider>
     </ThemeProvider>
