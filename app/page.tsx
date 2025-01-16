@@ -118,7 +118,7 @@ export default function Page() {
           ? Object.entries(categoryTotals).reduce((a, b) =>
               a[1] > b[1] ? a : b
             )
-          : ["None", 0];
+          : (["None", 0] as [string, number]);
 
       // Set stats
       setStats({
